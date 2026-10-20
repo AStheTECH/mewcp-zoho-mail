@@ -470,13 +470,14 @@ def register_emails_tools(mcp: FastMCP) -> None:
         name="save_draft",
         description=(
             "Saves an email as a draft or a template without sending it, selected via mode (draft "
-            "or template). mode must always be sent: omitting it is not rejected and the request "
-            "is instead processed as a normal send, actually delivering the email. fromAddress "
+            "or template). Omitting mode falls through to sending a real email instead of saving "
+            "a draft, since the request is then processed as a normal send. fromAddress "
             "must be the account's Zoho mailbox address (mailboxAddress from list_accounts), not an "
             "external address, or delivery can fail even though the call returns success. For a "
             "draft reply pass inReplyTo (the Message-ID header, not the numeric messageId, from "
             "get_email_headers or get_original_message), and refHeader as well when the reply is "
-            "part of an existing thread. To send immediately instead, use send_email."
+            "part of an existing thread. To send immediately instead, use send_email. Returns the "
+            "saved draft's messageId and mailId."
         ),
         annotations=ToolAnnotations(readOnlyHint=False, destructiveHint=False, openWorldHint=True),
     )
