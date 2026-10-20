@@ -1,0 +1,13 @@
+{
+  "manifest_version": 1,
+  "server": {
+    "name": "mewcp-zoho-mail",
+    "package": "zoho_mail_mcp",
+    "auth": "oauth",
+    "version": "v1.0.0",
+    "api_base": "https://{mail_host}/api"
+  },
+  "tools": { "groups": {} },
+  "resources": {},
+  "prompts": {}
+}
