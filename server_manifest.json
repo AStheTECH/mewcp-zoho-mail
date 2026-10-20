@@ -249,12 +249,6 @@
           }
         }
       },
-      "bookmarks": {
-        "file": "bookmarks_tools.py",
-        "doc_source": "bookmarks/*.md",
-        "register_fn": "register_bookmarks_tools",
-        "tools": {}
-      },
       "emails": {
         "file": "emails_tools.py",
         "doc_source": "emails/*.md",
@@ -1375,30 +1369,6 @@
             "doc_file": "labels/list_labels.md"
           }
         }
-      },
-      "notes": {
-        "file": "notes_tools.py",
-        "doc_source": "notes/*.md",
-        "register_fn": "register_notes_tools",
-        "tools": {}
-      },
-      "signatures": {
-        "file": "signatures_tools.py",
-        "doc_source": "signatures/*.md",
-        "register_fn": "register_signatures_tools",
-        "tools": {}
-      },
-      "tasks": {
-        "file": "tasks_tools.py",
-        "doc_source": "tasks/*.md",
-        "register_fn": "register_tasks_tools",
-        "tools": {}
-      },
-      "threads": {
-        "file": "threads_tools.py",
-        "doc_source": "threads/*.md",
-        "register_fn": "register_threads_tools",
-        "tools": {}
       }
     }
   },
