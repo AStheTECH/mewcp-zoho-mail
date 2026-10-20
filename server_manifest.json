@@ -7,7 +7,1401 @@
     "version": "v1.0.0",
     "api_base": "https://{mail_host}/api"
   },
-  "tools": { "groups": {} },
+  "tools": {
+    "groups": {
+      "accounts": {
+        "file": "accounts_tools.py",
+        "doc_source": "accounts/*.md",
+        "register_fn": "register_accounts_tools",
+        "tools": {
+          "list_accounts": {
+            "endpoint": "GET /accounts",
+            "description": "Retrieves all the account details of the authenticated user, including each account's accountId, email addresses, storage, send-mail details, forwarding and vacation-reply settings. The accountId returned here is required by every account-scoped endpoint.",
+            "tier": "GET",
+            "params": [],
+            "response_fields": [
+              {
+                "name": "status.code",
+                "type": "int"
+              },
+              {
+                "name": "status.description",
+                "type": "str"
+              },
+              {
+                "name": "data",
+                "type": "list"
+              },
+              {
+                "name": "data[].accountId",
+                "type": "str"
+              },
+              {
+                "name": "data[].accountDisplayName",
+                "type": "str"
+              },
+              {
+                "name": "data[].accountName",
+                "type": "str"
+              },
+              {
+                "name": "data[].displayName",
+                "type": "str"
+              },
+              {
+                "name": "data[].type",
+                "type": "str"
+              },
+              {
+                "name": "data[].enabled",
+                "type": "bool"
+              },
+              {
+                "name": "data[].mailboxStatus",
+                "type": "str"
+              },
+              {
+                "name": "data[].mailboxAddress",
+                "type": "str"
+              },
+              {
+                "name": "data[].incomingUserName",
+                "type": "str"
+              },
+              {
+                "name": "data[].primaryEmailAddress",
+                "type": "str"
+              },
+              {
+                "name": "data[].emailAddress",
+                "type": "list"
+              },
+              {
+                "name": "data[].emailAddress[].mailId",
+                "type": "str"
+              },
+              {
+                "name": "data[].emailAddress[].isPrimary",
+                "type": "bool"
+              },
+              {
+                "name": "data[].emailAddress[].isAlias",
+                "type": "bool"
+              },
+              {
+                "name": "data[].emailAddress[].isConfirmed",
+                "type": "bool"
+              },
+              {
+                "name": "data[].usedStorage",
+                "type": "int"
+              },
+              {
+                "name": "data[].allowedStorage",
+                "type": "int"
+              },
+              {
+                "name": "data[].planStorage",
+                "type": "int"
+              },
+              {
+                "name": "data[].basicStorage",
+                "type": "str"
+              },
+              {
+                "name": "data[].sendMailDetails",
+                "type": "list"
+              },
+              {
+                "name": "data[].sendMailDetails[].sendMailId",
+                "type": "str"
+              },
+              {
+                "name": "data[].sendMailDetails[].displayName",
+                "type": "str"
+              },
+              {
+                "name": "data[].sendMailDetails[].fromAddress",
+                "type": "str"
+              },
+              {
+                "name": "data[].sendMailDetails[].serverName",
+                "type": "str"
+              },
+              {
+                "name": "data[].sendMailDetails[].serverPort",
+                "type": "int"
+              },
+              {
+                "name": "data[].sendMailDetails[].userName",
+                "type": "str"
+              },
+              {
+                "name": "data[].sendMailDetails[].connectionType",
+                "type": "str"
+              },
+              {
+                "name": "data[].sendMailDetails[].mode",
+                "type": "str"
+              },
+              {
+                "name": "data[].sendMailDetails[].validated",
+                "type": "bool"
+              },
+              {
+                "name": "data[].sendMailDetails[].status",
+                "type": "bool"
+              },
+              {
+                "name": "data[].mailForward",
+                "type": "list"
+              },
+              {
+                "name": "data[].mailForward[].mailForwardTo",
+                "type": "str"
+              },
+              {
+                "name": "data[].mailForward[].type",
+                "type": "str"
+              },
+              {
+                "name": "data[].mailForward[].status",
+                "type": "str"
+              },
+              {
+                "name": "data[].vacationResponse",
+                "type": "list"
+              },
+              {
+                "name": "data[].vacationResponse[].vacationId",
+                "type": "str"
+              },
+              {
+                "name": "data[].vacationResponse[].accountId",
+                "type": "str"
+              },
+              {
+                "name": "data[].vacationResponse[].subject",
+                "type": "str"
+              },
+              {
+                "name": "data[].vacationResponse[].content",
+                "type": "str"
+              },
+              {
+                "name": "data[].vacationResponse[].fromDate",
+                "type": "str"
+              },
+              {
+                "name": "data[].vacationResponse[].toDate",
+                "type": "str"
+              },
+              {
+                "name": "data[].vacationResponse[].infiniteDate",
+                "type": "bool"
+              },
+              {
+                "name": "data[].vacationResponse[].replyType",
+                "type": "int"
+              },
+              {
+                "name": "data[].vacationResponse[].sendTo",
+                "type": "int"
+              },
+              {
+                "name": "data[].vacationResponse[].includeSignature",
+                "type": "int"
+              },
+              {
+                "name": "data[].vacationResponse[].markBusy",
+                "type": "int"
+              },
+              {
+                "name": "data[].vacationResponse[].intervalType",
+                "type": "int"
+              },
+              {
+                "name": "data[].vacationResponse[].interval",
+                "type": "int"
+              },
+              {
+                "name": "data[].vacationResponse[].accType",
+                "type": "int"
+              },
+              {
+                "name": "data[].vacationResponse[].name",
+                "type": "str"
+              },
+              {
+                "name": "data[].zuid",
+                "type": "int"
+              },
+              {
+                "name": "data[].URI",
+                "type": "str"
+              }
+            ],
+            "schema": {
+              "data": "AccountListData",
+              "result": "AccountListResult"
+            },
+            "doc_file": "accounts/list_accounts.md"
+          }
+        }
+      },
+      "bookmarks": {
+        "file": "bookmarks_tools.py",
+        "doc_source": "bookmarks/*.md",
+        "register_fn": "register_bookmarks_tools",
+        "tools": {}
+      },
+      "emails": {
+        "file": "emails_tools.py",
+        "doc_source": "emails/*.md",
+        "register_fn": "register_emails_tools",
+        "tools": {
+          "apply_labels_to_emails": {
+            "endpoint": "PUT /accounts/{accountId}/updatemessage",
+            "description": "Applies one or more labels to one or more emails (or whole threads). Pass mode as applyLabel, labelId (array of label IDs), and messageId (array of message IDs).",
+            "tier": "UPDATE_MANY",
+            "params": [
+              {
+                "name": "accountId",
+                "type": "str",
+                "required": true,
+                "description": "Identifies the specific account. Can be retrieved from the Get User Account Details API."
+              },
+              {
+                "name": "mode",
+                "type": "str",
+                "required": true,
+                "description": "The type of operation to perform. Provide the value as applyLabel."
+              },
+              {
+                "name": "messageId",
+                "type": "list[str]",
+                "required": true,
+                "description": "Array of one or more message IDs for which labels need to be applied. Can be retrieved from the List Emails API."
+              },
+              {
+                "name": "threadId",
+                "type": "list[str]",
+                "required": false,
+                "description": "Array of one or more thread IDs for which labels need to be set. If labels need to be applied for the entire thread, threadId can be passed instead of messageId."
+              },
+              {
+                "name": "labelId",
+                "type": "list[str]",
+                "required": true,
+                "description": "Array of one or more label IDs to apply to the emails. Can be retrieved from the Get All Label Details API."
+              },
+              {
+                "name": "isFolderSpecific",
+                "type": "bool",
+                "required": false,
+                "description": "Whether this action is folder-specific. If true, folderId has to be mentioned. Default false."
+              },
+              {
+                "name": "folderId",
+                "type": "str",
+                "required": false,
+                "description": "The unique identifier of the respective folder. Only messages present in this folder will be considered for this action."
+              },
+              {
+                "name": "isArchive",
+                "type": "bool",
+                "required": false,
+                "description": "Whether archived emails should be included in this action. true includes both archived and non-archived emails; false excludes archived emails. Default false."
+              }
+            ],
+            "response_fields": [],
+            "schema": {
+              "data": "ApplyLabelsToEmailsData",
+              "result": "ApplyLabelsToEmailsResult"
+            },
+            "doc_file": "emails/apply_labels_to_emails.md"
+          },
+          "delete_email": {
+            "endpoint": "DELETE /accounts/{accountId}/folders/{folderId}/messages/{messageId}",
+            "description": "Deletes an email by folder and message ID. By default the email is moved to the Trash folder; set the expunge query parameter to true to delete it permanently without moving it to Trash.",
+            "tier": "DELETE",
+            "params": [
+              {
+                "name": "accountId",
+                "type": "str",
+                "required": true,
+                "description": "Identifies the specific account to fetch details. Can be retrieved from the Get User Account Details API."
+              },
+              {
+                "name": "folderId",
+                "type": "str",
+                "required": true,
+                "description": "Identifies the specific folder for which the emails need to be retrieved. Can be retrieved from the Get All Folders API."
+              },
+              {
+                "name": "messageId",
+                "type": "str",
+                "required": true,
+                "description": "Unique ID associated with the particular email. Can be retrieved from the List Emails API."
+              },
+              {
+                "name": "expunge",
+                "type": "bool",
+                "required": false,
+                "description": "Whether the email should be deleted permanently without moving it to the trash folder. Default false."
+              }
+            ],
+            "response_fields": [
+              {
+                "name": "cId",
+                "type": "str"
+              }
+            ],
+            "schema": {
+              "data": "DeleteEmailData",
+              "result": "DeleteEmailResult"
+            },
+            "doc_file": "emails/delete_email.md"
+          },
+          "get_email_content": {
+            "endpoint": "GET /accounts/{accountId}/folders/{folderId}/messages/{messageId}/content",
+            "description": "Returns the body content (HTML) of a specific email by accountId, folderId and messageId. Optionally includeBlockContent returns the reply and the quoted parent separately for threaded emails. Get messageId and folderId from list_emails or search_emails.",
+            "tier": "GET",
+            "params": [
+              {
+                "name": "accountId",
+                "type": "str",
+                "required": true,
+                "description": "Identifies the specific account to fetch details. Can be retrieved from the Get User Account Details API."
+              },
+              {
+                "name": "folderId",
+                "type": "str",
+                "required": true,
+                "description": "Identifies the specific folder for which the emails need to be retrieved. Can be retrieved from the Get All Folders API."
+              },
+              {
+                "name": "messageId",
+                "type": "str",
+                "required": true,
+                "description": "Unique ID associated with the particular email. Can be retrieved from the List Emails API."
+              },
+              {
+                "name": "includeBlockContent",
+                "type": "bool",
+                "required": false,
+                "description": "Whether to include the block quote content in an email along with the email content."
+              }
+            ],
+            "response_fields": [
+              {
+                "name": "messageId",
+                "type": "str"
+              },
+              {
+                "name": "content",
+                "type": "str"
+              },
+              {
+                "name": "blockContent",
+                "type": "str"
+              }
+            ],
+            "schema": {
+              "data": "GetEmailContentData",
+              "result": "GetEmailContentResult"
+            },
+            "doc_file": "emails/get_email_content.md"
+          },
+          "list_emails": {
+            "endpoint": "GET /accounts/{accountId}/messages/view",
+            "description": "Lists emails in a mailbox folder (or by status, flag, label, thread, attachment and similar filters) and returns their summary details with start/limit paging. For a free-text or search-syntax query use search_emails instead.",
+            "tier": "GET",
+            "params": [
+              {
+                "name": "accountId",
+                "type": "str",
+                "required": true,
+                "description": "Identifies the account from which the emails are retrieved. Can be fetched from the Get All User Accounts API."
+              },
+              {
+                "name": "folderId",
+                "type": "str",
+                "required": false,
+                "description": "Unique identifier of the folder from which the emails are retrieved. Can be fetched using the Get all folders API."
+              },
+              {
+                "name": "start",
+                "type": "int",
+                "required": false,
+                "description": "Starting sequence number of the emails to be retrieved. Default 1."
+              },
+              {
+                "name": "limit",
+                "type": "int",
+                "required": false,
+                "description": "Number of emails to retrieve from the start value. Min 1, max 200, default 10."
+              },
+              {
+                "name": "status",
+                "type": "str",
+                "required": false,
+                "description": "Retrieve emails by read or unread status. Values: read, unread, all. Default all."
+              },
+              {
+                "name": "flagid",
+                "type": "int",
+                "required": false,
+                "description": "Identifier of the flag used to retrieve emails of a specific flag type. Values: 0 flag_not_set, 1 info, 2 important, 3 followup."
+              },
+              {
+                "name": "labelid",
+                "type": "str",
+                "required": false,
+                "description": "Identifier of the label used to retrieve emails with a specific label."
+              },
+              {
+                "name": "threadId",
+                "type": "str",
+                "required": false,
+                "description": "Identifier used to retrieve emails of the given threadId."
+              },
+              {
+                "name": "sortBy",
+                "type": "str",
+                "required": false,
+                "description": "Basis on which the list is sorted. Values: date, messageId, size. Default date."
+              },
+              {
+                "name": "sortorder",
+                "type": "bool",
+                "required": false,
+                "description": "Sort order. true ascending, false descending. Default false."
+              },
+              {
+                "name": "includeto",
+                "type": "bool",
+                "required": false,
+                "description": "Whether to details are included in the list. Default false."
+              },
+              {
+                "name": "includesent",
+                "type": "bool",
+                "required": false,
+                "description": "Whether sent emails are included in the list. Default false."
+              },
+              {
+                "name": "includearchive",
+                "type": "bool",
+                "required": false,
+                "description": "Whether archived emails are included in the list. Default false."
+              },
+              {
+                "name": "attachedMails",
+                "type": "bool",
+                "required": false,
+                "description": "true retrieves only emails with attachments, false retrieves all. Default false."
+              },
+              {
+                "name": "inlinedMails",
+                "type": "bool",
+                "required": false,
+                "description": "true retrieves only emails with inline images, false retrieves all. Default false."
+              },
+              {
+                "name": "flaggedMails",
+                "type": "bool",
+                "required": false,
+                "description": "true retrieves only flagged emails, false retrieves all. Default false."
+              },
+              {
+                "name": "respondedMails",
+                "type": "bool",
+                "required": false,
+                "description": "true retrieves only emails with replies, false retrieves all. Default false."
+              },
+              {
+                "name": "threadedMails",
+                "type": "bool",
+                "required": false,
+                "description": "true retrieves emails that are part of conversations, false retrieves all. Default false."
+              }
+            ],
+            "response_fields": [
+              {
+                "name": "summary",
+                "type": "str"
+              },
+              {
+                "name": "sentDateInGMT",
+                "type": "str"
+              },
+              {
+                "name": "calendarType",
+                "type": "int"
+              },
+              {
+                "name": "subject",
+                "type": "str"
+              },
+              {
+                "name": "messageId",
+                "type": "str"
+              },
+              {
+                "name": "threadCount",
+                "type": "str"
+              },
+              {
+                "name": "flagid",
+                "type": "str"
+              },
+              {
+                "name": "status2",
+                "type": "str"
+              },
+              {
+                "name": "priority",
+                "type": "str"
+              },
+              {
+                "name": "hasInline",
+                "type": "str"
+              },
+              {
+                "name": "toAddress",
+                "type": "str"
+              },
+              {
+                "name": "folderId",
+                "type": "str"
+              },
+              {
+                "name": "ccAddress",
+                "type": "str"
+              },
+              {
+                "name": "threadId",
+                "type": "str"
+              },
+              {
+                "name": "hasAttachment",
+                "type": "str"
+              },
+              {
+                "name": "size",
+                "type": "str"
+              },
+              {
+                "name": "sender",
+                "type": "str"
+              },
+              {
+                "name": "receivedTime",
+                "type": "str"
+              },
+              {
+                "name": "fromAddress",
+                "type": "str"
+              },
+              {
+                "name": "status",
+                "type": "str"
+              }
+            ],
+            "schema": {
+              "data": "ListEmailsData",
+              "result": "ListEmailsResult"
+            },
+            "doc_file": "emails/list_emails.md"
+          },
+          "mark_email_as_read": {
+            "endpoint": "PUT /accounts/{accountId}/updatemessage",
+            "description": "Marks one or more emails as read in a single call. Pass mode as markAsRead with messageId (array of message IDs) and/or threadId (array of thread IDs).",
+            "tier": "UPDATE_MANY",
+            "params": [
+              {
+                "name": "accountId",
+                "type": "str",
+                "required": true,
+                "description": "Identifies the specific account. Can be retrieved from the Get User Account Details API."
+              },
+              {
+                "name": "mode",
+                "type": "str",
+                "required": true,
+                "description": "The type of operation to perform. Provide the value as markAsRead."
+              },
+              {
+                "name": "messageId",
+                "type": "list[str]",
+                "required": false,
+                "description": "Array of one or more message IDs to mark as read. Can be retrieved from the List Emails API."
+              },
+              {
+                "name": "threadId",
+                "type": "list[str]",
+                "required": false,
+                "description": "Array of one or more thread IDs to mark as read. Can be retrieved from the List Emails API."
+              }
+            ],
+            "response_fields": [],
+            "schema": {
+              "data": "MarkEmailAsReadData",
+              "result": "MarkEmailAsReadResult"
+            },
+            "doc_file": "emails/mark_email_as_read.md"
+          },
+          "mark_email_as_unread": {
+            "endpoint": "PUT /accounts/{accountId}/updatemessage",
+            "description": "Marks one or more emails as unread in a single call. Pass mode as markAsUnread with messageId (array of message IDs) and/or threadId (array of thread IDs).",
+            "tier": "UPDATE_MANY",
+            "params": [
+              {
+                "name": "accountId",
+                "type": "str",
+                "required": true,
+                "description": "Identifies the specific account. Can be retrieved from the Get User Account Details API."
+              },
+              {
+                "name": "mode",
+                "type": "str",
+                "required": true,
+                "description": "The type of operation to perform. Provide the value as markAsUnread."
+              },
+              {
+                "name": "messageId",
+                "type": "list[str]",
+                "required": false,
+                "description": "Array of one or more message IDs to mark as unread. Can be retrieved from the List Emails API."
+              },
+              {
+                "name": "threadId",
+                "type": "list[str]",
+                "required": false,
+                "description": "Array of one or more thread IDs to mark as unread. Can be retrieved from the List Emails API."
+              }
+            ],
+            "response_fields": [],
+            "schema": {
+              "data": "MarkEmailAsUnreadData",
+              "result": "MarkEmailAsUnreadResult"
+            },
+            "doc_file": "emails/mark_email_as_unread.md"
+          },
+          "move_emails": {
+            "endpoint": "PUT /accounts/{accountId}/updatemessage",
+            "description": "Moves one or more emails (or whole threads) from their existing folder to another folder. Pass mode as moveMessage, destfolderId (target folder), and messageId (array of message IDs).",
+            "tier": "UPDATE_MANY",
+            "params": [
+              {
+                "name": "accountId",
+                "type": "str",
+                "required": true,
+                "description": "Identifies the specific account. Can be retrieved from the Get User Account Details API."
+              },
+              {
+                "name": "mode",
+                "type": "str",
+                "required": true,
+                "description": "The type of operation to perform. Provide the value as moveMessage."
+              },
+              {
+                "name": "messageId",
+                "type": "list[str]",
+                "required": true,
+                "description": "Array of one or more message IDs to move. Can be retrieved from the List Emails API."
+              },
+              {
+                "name": "threadId",
+                "type": "list[str]",
+                "required": false,
+                "description": "Array of one or more thread IDs to move. If the entire thread needs to be moved, threadId can be passed instead of messageId."
+              },
+              {
+                "name": "destfolderId",
+                "type": "str",
+                "required": true,
+                "description": "The unique identifier of the folder to which the email(s) need to be moved. Can be retrieved from the Get All Folders API."
+              },
+              {
+                "name": "isFolderSpecific",
+                "type": "bool",
+                "required": false,
+                "description": "Whether this action is folder-specific. If true, folderId has to be mentioned. Default false."
+              },
+              {
+                "name": "folderId",
+                "type": "str",
+                "required": false,
+                "description": "The unique identifier for the existing folder. Can be retrieved from the Get All Folders API."
+              },
+              {
+                "name": "isArchive",
+                "type": "bool",
+                "required": false,
+                "description": "Whether archived emails should be included in this action. true includes both archived and non-archived emails; false excludes archived emails. Default false."
+              }
+            ],
+            "response_fields": [],
+            "schema": {
+              "data": "MoveEmailsData",
+              "result": "MoveEmailsResult"
+            },
+            "doc_file": "emails/move_emails.md"
+          },
+          "reply_to_email": {
+            "endpoint": "POST /accounts/{accountId}/messages/{messageId}",
+            "description": "Sends a reply to an existing email (identified by messageId) immediately, or schedules it when isSchedule is true. Requires action set to reply (lowercase). Put the reply text in content.",
+            "tier": "CREATE",
+            "params": [
+              {
+                "name": "accountId",
+                "type": "str",
+                "required": true,
+                "description": "Identifies the account from which the email has to be sent. Can be fetched from the Get All User Accounts API."
+              },
+              {
+                "name": "messageId",
+                "type": "str",
+                "required": true,
+                "description": "Identifies the message which needs to be replied to. Can be fetched from the List Emails API."
+              },
+              {
+                "name": "fromAddress",
+                "type": "str",
+                "required": true,
+                "description": "Sender's email address, associated to the authenticated account."
+              },
+              {
+                "name": "toAddress",
+                "type": "str",
+                "required": true,
+                "description": "Recipient's email address."
+              },
+              {
+                "name": "ccAddress",
+                "type": "str",
+                "required": false,
+                "description": "Recipient's email address for the Cc field."
+              },
+              {
+                "name": "bccAddress",
+                "type": "str",
+                "required": false,
+                "description": "Recipient's email address for the Bcc field."
+              },
+              {
+                "name": "subject",
+                "type": "str",
+                "required": false,
+                "description": "Subject of the email."
+              },
+              {
+                "name": "content",
+                "type": "str",
+                "required": false,
+                "description": "Body of the reply."
+              },
+              {
+                "name": "action",
+                "type": "str",
+                "required": true,
+                "description": "Which action to perform with the message. Must be the lowercase value reply."
+              },
+              {
+                "name": "mailFormat",
+                "type": "str",
+                "required": false,
+                "description": "Format in which the mail needs to be sent. Allowed values: html, plaintext. Default html."
+              },
+              {
+                "name": "askReceipt",
+                "type": "str",
+                "required": false,
+                "description": "Whether a read receipt from the recipient is requested. Allowed values: yes, no."
+              },
+              {
+                "name": "encoding",
+                "type": "str",
+                "required": false,
+                "description": "Encoding used in the email content. Allowed values: Big5, EUC-JP, EUC-KR, GB2312, ISO-2022-JP, ISO-8859-1, KOI8-R, Shift_JIS, US-ASCII, UTF-8, WINDOWS-1251, X-WINDOWS-ISO2022JP. Default UTF-8."
+              },
+              {
+                "name": "isSchedule",
+                "type": "bool",
+                "required": false,
+                "description": "true if the email should be scheduled; false if it should be sent immediately."
+              },
+              {
+                "name": "scheduleType",
+                "type": "int",
+                "required": false,
+                "description": "Type of scheduling. Allowed values: 1 after one hour, 2 after two hours, 3 after four hours, 4 by the morning of the next day, 5 by the afternoon of the next day, 6 on a custom date and time."
+              },
+              {
+                "name": "timeZone",
+                "type": "str",
+                "required": false,
+                "description": "Timezone to schedule your email. Mandatory if scheduleType is 6."
+              },
+              {
+                "name": "scheduleTime",
+                "type": "str",
+                "required": false,
+                "description": "Date and time to schedule your email, format MM/DD/YYYY HH:MM:SS. Mandatory if scheduleType is 6."
+              }
+            ],
+            "response_fields": [
+              {
+                "name": "subject",
+                "type": "str"
+              },
+              {
+                "name": "action",
+                "type": "str"
+              },
+              {
+                "name": "messageId",
+                "type": "str"
+              },
+              {
+                "name": "fromAddress",
+                "type": "str"
+              },
+              {
+                "name": "mailId",
+                "type": "str"
+              },
+              {
+                "name": "toAddress",
+                "type": "str"
+              },
+              {
+                "name": "content",
+                "type": "str"
+              }
+            ],
+            "schema": {
+              "data": "ReplyToEmailData",
+              "result": "ReplyToEmailResult"
+            },
+            "doc_file": "emails/reply_to_email.md"
+          },
+          "save_draft": {
+            "endpoint": "POST /accounts/{accountId}/messages",
+            "description": "Saves an email as a draft or a template without sending it; the mode field selects draft or template. For a draft reply, pass inReplyTo (and refHeader for threads). To send immediately, use send_email instead.",
+            "tier": "CREATE",
+            "params": [
+              {
+                "name": "accountId",
+                "type": "str",
+                "required": true,
+                "description": "Identifies the account from which the email has to be sent. Can be fetched from the Get All User Accounts API."
+              },
+              {
+                "name": "fromAddress",
+                "type": "str",
+                "required": true,
+                "description": "Sender's email address, associated to the authenticated account."
+              },
+              {
+                "name": "toAddress",
+                "type": "str",
+                "required": true,
+                "description": "Recipient's email address."
+              },
+              {
+                "name": "mode",
+                "type": "str",
+                "required": true,
+                "description": "Whether the content should be saved as a draft or a template. Allowed values: draft, template."
+              },
+              {
+                "name": "ccAddress",
+                "type": "str",
+                "required": false,
+                "description": "Recipient's email address for the Cc field."
+              },
+              {
+                "name": "bccAddress",
+                "type": "str",
+                "required": false,
+                "description": "Recipient's email address for the Bcc field."
+              },
+              {
+                "name": "subject",
+                "type": "str",
+                "required": false,
+                "description": "Subject of the email."
+              },
+              {
+                "name": "content",
+                "type": "str",
+                "required": false,
+                "description": "Content of the email."
+              },
+              {
+                "name": "mailFormat",
+                "type": "str",
+                "required": false,
+                "description": "Format in which the mail needs to be sent. Allowed values: html, plaintext. Default html."
+              },
+              {
+                "name": "askReceipt",
+                "type": "str",
+                "required": false,
+                "description": "Whether a read receipt from the recipient is requested. Allowed values: yes, no."
+              },
+              {
+                "name": "encoding",
+                "type": "str",
+                "required": false,
+                "description": "Encoding used in the email content. Allowed values: Big5, EUC-JP, EUC-KR, GB2312, ISO-2022-JP, ISO-8859-1, KOI8-R, Shift_JIS, US-ASCII, UTF-8, WINDOWS-1251, X-WINDOWS-ISO2022JP. Default UTF-8."
+              },
+              {
+                "name": "inReplyTo",
+                "type": "str",
+                "required": false,
+                "description": "The Message-ID present in the header of the email being replied to. Get the messageId from List Emails, then read the Message-ID from Get Email Header or Get Original Message."
+              },
+              {
+                "name": "refHeader",
+                "type": "str",
+                "required": false,
+                "description": "The Message-IDs of all previous emails in the thread, space-separated in chronological order."
+              }
+            ],
+            "response_fields": [
+              {
+                "name": "mode",
+                "type": "str"
+              },
+              {
+                "name": "subject",
+                "type": "str"
+              },
+              {
+                "name": "messageId",
+                "type": "str"
+              },
+              {
+                "name": "fromAddress",
+                "type": "str"
+              },
+              {
+                "name": "mailId",
+                "type": "str"
+              },
+              {
+                "name": "toAddress",
+                "type": "str"
+              },
+              {
+                "name": "content",
+                "type": "str"
+              }
+            ],
+            "schema": {
+              "data": "SaveDraftData",
+              "result": "SaveDraftResult"
+            },
+            "doc_file": "emails/save_draft.md"
+          },
+          "search_emails": {
+            "endpoint": "GET /accounts/{accountId}/messages/search",
+            "description": "Searches emails using a searchKey built with Zoho Mail search syntax (for example newMails) and returns the matching messages with start/limit paging. To browse a folder or filter by status, flag or label without a search query, use list_emails instead.",
+            "tier": "GET",
+            "params": [
+              {
+                "name": "accountId",
+                "type": "str",
+                "required": true,
+                "description": "Identifies the account from which the emails are retrieved. Can be fetched from the Get All User Accounts API."
+              },
+              {
+                "name": "searchKey",
+                "type": "str",
+                "required": true,
+                "description": "Search criteria, constructed using the Zoho Mail search syntax. Example: newMails."
+              },
+              {
+                "name": "receivedTime",
+                "type": "str",
+                "required": false,
+                "description": "Time before which emails were received, as a Unix timestamp in milliseconds. By default the API retrieves emails received before 2 minutes from the current time unless a specific timestamp is provided."
+              },
+              {
+                "name": "start",
+                "type": "int",
+                "required": false,
+                "description": "Starting sequence number of the emails to be retrieved. Default 1."
+              },
+              {
+                "name": "limit",
+                "type": "int",
+                "required": false,
+                "description": "Number of emails to retrieve from the start value. Min 1, max 200, default 10."
+              },
+              {
+                "name": "includeto",
+                "type": "bool",
+                "required": false,
+                "description": "Whether To details are included in the list. Default false."
+              }
+            ],
+            "response_fields": [
+              {
+                "name": "URI",
+                "type": "str"
+              },
+              {
+                "name": "hasAttachment",
+                "type": "int"
+              },
+              {
+                "name": "fromAddress",
+                "type": "str"
+              },
+              {
+                "name": "folderId",
+                "type": "str"
+              },
+              {
+                "name": "messageId",
+                "type": "str"
+              },
+              {
+                "name": "sender",
+                "type": "str"
+              },
+              {
+                "name": "summary",
+                "type": "str"
+              },
+              {
+                "name": "status2",
+                "type": "str"
+              },
+              {
+                "name": "sentDateInGMT",
+                "type": "int"
+              },
+              {
+                "name": "size",
+                "type": "int"
+              },
+              {
+                "name": "status",
+                "type": "str"
+              },
+              {
+                "name": "priority",
+                "type": "int"
+              },
+              {
+                "name": "threadCount",
+                "type": "int"
+              },
+              {
+                "name": "flagid",
+                "type": "int"
+              },
+              {
+                "name": "subject",
+                "type": "str"
+              },
+              {
+                "name": "threadId",
+                "type": "str"
+              },
+              {
+                "name": "receivedTime",
+                "type": "int"
+              }
+            ],
+            "schema": {
+              "data": "SearchEmailsData",
+              "result": "SearchEmailsResult"
+            },
+            "doc_file": "emails/search_emails.md"
+          },
+          "send_email": {
+            "endpoint": "POST /accounts/{accountId}/messages",
+            "description": "Sends an email immediately from the given account, or schedules it for later when isSchedule is true. To save an email without sending it, use save_draft instead.",
+            "tier": "CREATE",
+            "params": [
+              {
+                "name": "accountId",
+                "type": "str",
+                "required": true,
+                "description": "Identifies the account from which the email has to be sent. Can be fetched from the Get All User Accounts API."
+              },
+              {
+                "name": "fromAddress",
+                "type": "str",
+                "required": true,
+                "description": "Sender's email address, associated to the authenticated account."
+              },
+              {
+                "name": "toAddress",
+                "type": "str",
+                "required": true,
+                "description": "Recipient's email address."
+              },
+              {
+                "name": "ccAddress",
+                "type": "str",
+                "required": false,
+                "description": "Recipient's email address for the Cc field."
+              },
+              {
+                "name": "bccAddress",
+                "type": "str",
+                "required": false,
+                "description": "Recipient's email address for the Bcc field."
+              },
+              {
+                "name": "subject",
+                "type": "str",
+                "required": false,
+                "description": "Subject of the email."
+              },
+              {
+                "name": "content",
+                "type": "str",
+                "required": false,
+                "description": "Content of the email."
+              },
+              {
+                "name": "mailFormat",
+                "type": "str",
+                "required": false,
+                "description": "Format in which the mail needs to be sent. Allowed values: html, plaintext. Default html."
+              },
+              {
+                "name": "askReceipt",
+                "type": "str",
+                "required": false,
+                "description": "Whether a read receipt from the recipient is requested. Allowed values: yes, no."
+              },
+              {
+                "name": "encoding",
+                "type": "str",
+                "required": false,
+                "description": "Encoding used in the email content. Allowed values: Big5, EUC-JP, EUC-KR, GB2312, ISO-2022-JP, ISO-8859-1, KOI8-R, Shift_JIS, US-ASCII, UTF-8, WINDOWS-1251, X-WINDOWS-ISO2022JP. Default UTF-8."
+              },
+              {
+                "name": "isSchedule",
+                "type": "bool",
+                "required": false,
+                "description": "true if the email should be scheduled; false if it should be sent immediately."
+              },
+              {
+                "name": "scheduleType",
+                "type": "int",
+                "required": false,
+                "description": "Type of scheduling. Allowed values: 1 after one hour, 2 after two hours, 3 after four hours, 4 by the morning of the next day, 5 by the afternoon of the next day, 6 on a custom date and time."
+              },
+              {
+                "name": "timeZone",
+                "type": "str",
+                "required": false,
+                "description": "Timezone to schedule your email. Mandatory if scheduleType is 6."
+              },
+              {
+                "name": "scheduleTime",
+                "type": "str",
+                "required": false,
+                "description": "Date and time to schedule your email, format MM/DD/YYYY HH:MM:SS. Mandatory if scheduleType is 6."
+              }
+            ],
+            "response_fields": [
+              {
+                "name": "subject",
+                "type": "str"
+              },
+              {
+                "name": "messageId",
+                "type": "str"
+              },
+              {
+                "name": "fromAddress",
+                "type": "str"
+              },
+              {
+                "name": "mailId",
+                "type": "str"
+              },
+              {
+                "name": "toAddress",
+                "type": "str"
+              },
+              {
+                "name": "content",
+                "type": "str"
+              }
+            ],
+            "schema": {
+              "data": "SendEmailData",
+              "result": "SendEmailResult"
+            },
+            "doc_file": "emails/send_email.md"
+          }
+        }
+      },
+      "folders": {
+        "file": "folders_tools.py",
+        "doc_source": "folders/*.md",
+        "register_fn": "register_folders_tools",
+        "tools": {
+          "list_folders": {
+            "endpoint": "GET /accounts/{accountId}/folders",
+            "description": "Lists all the folders within the specified account, returning each folder's folderId, name, path, type, IMAP access and archive flags. The folderId is used by folder- and email-level endpoints.",
+            "tier": "GET",
+            "params": [
+              {
+                "name": "accountId",
+                "type": "str",
+                "required": true,
+                "description": "Path parameter. Identifies the account from which the folders have to be fetched. It is generated during account addition. It can be fetched from the Get all accounts API."
+              }
+            ],
+            "response_fields": [
+              {
+                "name": "status.code",
+                "type": "int"
+              },
+              {
+                "name": "status.description",
+                "type": "str"
+              },
+              {
+                "name": "data[].path",
+                "type": "str"
+              },
+              {
+                "name": "data[].isArchived",
+                "type": "int"
+              },
+              {
+                "name": "data[].folderName",
+                "type": "str"
+              },
+              {
+                "name": "data[].imapAccess",
+                "type": "bool"
+              },
+              {
+                "name": "data[].folderType",
+                "type": "str"
+              },
+              {
+                "name": "data[].URI",
+                "type": "str"
+              },
+              {
+                "name": "data[].folderId",
+                "type": "str"
+              },
+              {
+                "name": "data[].previousFolderId",
+                "type": "str"
+              }
+            ],
+            "schema": {
+              "data": "FolderListData",
+              "result": "FolderListResult"
+            },
+            "doc_file": "folders/list_folders.md"
+          }
+        }
+      },
+      "labels": {
+        "file": "labels_tools.py",
+        "doc_source": "labels/*.md",
+        "register_fn": "register_labels_tools",
+        "tools": {
+          "list_labels": {
+            "endpoint": "GET /accounts/{accountId}/labels",
+            "description": "Retrieves all label details for the specified account, returning each label's labelId, tagId, displayName, color and sequence. The labelId is used by label-specific and email/thread labelling endpoints.",
+            "tier": "GET",
+            "params": [
+              {
+                "name": "accountId",
+                "type": "str",
+                "required": true,
+                "description": "Identifies the account whose label details are retrieved. It can be retrieved from the Get User Account Details API."
+              }
+            ],
+            "response_fields": [
+              {
+                "name": "status.code",
+                "type": "int"
+              },
+              {
+                "name": "status.description",
+                "type": "str"
+              },
+              {
+                "name": "data[].sequence",
+                "type": "int"
+              },
+              {
+                "name": "data[].labelId",
+                "type": "str"
+              },
+              {
+                "name": "data[].color",
+                "type": "str"
+              },
+              {
+                "name": "data[].tagId",
+                "type": "str"
+              },
+              {
+                "name": "data[].displayName",
+                "type": "str"
+              },
+              {
+                "name": "data[].URI",
+                "type": "str"
+              }
+            ],
+            "schema": {
+              "data": "LabelListData",
+              "result": "LabelListResult"
+            },
+            "doc_file": "labels/list_labels.md"
+          }
+        }
+      },
+      "notes": {
+        "file": "notes_tools.py",
+        "doc_source": "notes/*.md",
+        "register_fn": "register_notes_tools",
+        "tools": {}
+      },
+      "signatures": {
+        "file": "signatures_tools.py",
+        "doc_source": "signatures/*.md",
+        "register_fn": "register_signatures_tools",
+        "tools": {}
+      },
+      "tasks": {
+        "file": "tasks_tools.py",
+        "doc_source": "tasks/*.md",
+        "register_fn": "register_tasks_tools",
+        "tools": {}
+      },
+      "threads": {
+        "file": "threads_tools.py",
+        "doc_source": "threads/*.md",
+        "register_fn": "register_threads_tools",
+        "tools": {}
+      }
+    }
+  },
   "resources": {},
   "prompts": {}
 }

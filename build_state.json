@@ -1,9 +1,26 @@
 {
   "manifest_server_block": true,
-  "planning": false,
+  "planning": true,
   "infra": false,
   "tool_groups": {},
-  "built_from": {},
+  "built_from": {
+    "accounts": ["list_accounts.md"],
+    "folders": ["list_folders.md"],
+    "labels": ["list_labels.md"],
+    "emails": [
+      "apply_labels_to_emails.md",
+      "delete_email.md",
+      "get_email_content.md",
+      "list_emails.md",
+      "mark_email_as_read.md",
+      "mark_email_as_unread.md",
+      "move_emails.md",
+      "reply_to_email.md",
+      "save_draft.md",
+      "search_emails.md",
+      "send_email.md"
+    ]
+  },
   "validation_rounds": 0,
   "validation_passed": false,
   "docs_status_written": false,
