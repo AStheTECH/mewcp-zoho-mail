@@ -1,8 +1,13 @@
 {
   "manifest_server_block": true,
   "planning": true,
-  "infra": false,
-  "tool_groups": {},
+  "infra": true,
+  "tool_groups": {
+    "accounts": true,
+    "folders": true,
+    "labels": true,
+    "emails": true
+  },
   "built_from": {
     "accounts": ["list_accounts.md"],
     "folders": ["list_folders.md"],
