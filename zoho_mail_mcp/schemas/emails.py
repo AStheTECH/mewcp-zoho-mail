@@ -122,22 +122,22 @@ class SearchEmailsData(BaseModel):
     model_config = ConfigDict(extra="allow")
 
     URI: str | None = None
-    hasAttachment: int | None = None
+    hasAttachment: str | None = None
     fromAddress: str | None = None
     folderId: str | None = None
     messageId: str | None = None
     sender: str | None = None
     summary: str | None = None
     status2: str | None = None
-    sentDateInGMT: int | None = None
-    size: int | None = None
+    sentDateInGMT: str | None = None
+    size: str | None = None
     status: str | None = None
-    priority: int | None = None
-    threadCount: int | None = None
-    flagid: int | None = None
+    priority: str | None = None
+    threadCount: str | None = None
+    flagid: str | None = None
     subject: str | None = None
     threadId: str | None = None
-    receivedTime: int | None = None
+    receivedTime: str | None = None
 
 
 class SearchEmailsResult(ToolResult):
