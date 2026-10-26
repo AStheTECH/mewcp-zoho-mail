@@ -24,7 +24,7 @@ class DeleteEmailResult(ToolResult):
 class GetEmailContentData(BaseModel):
     model_config = ConfigDict(extra="allow")
 
-    messageId: str | None = None
+    messageId: str | int | None = None
     content: str | None = None
     blockContent: str | None = None
 
