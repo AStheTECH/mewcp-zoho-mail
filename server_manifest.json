@@ -348,7 +348,7 @@
             "response_fields": [
               {
                 "name": "cId",
-                "type": "str"
+                "type": "int"
               }
             ],
             "schema": {
@@ -390,7 +390,7 @@
             "response_fields": [
               {
                 "name": "messageId",
-                "type": "str"
+                "type": "int"
               },
               {
                 "name": "content",
@@ -1051,7 +1051,7 @@
               },
               {
                 "name": "hasAttachment",
-                "type": "int"
+                "type": "str"
               },
               {
                 "name": "fromAddress",
@@ -1079,11 +1079,11 @@
               },
               {
                 "name": "sentDateInGMT",
-                "type": "int"
+                "type": "str"
               },
               {
                 "name": "size",
-                "type": "int"
+                "type": "str"
               },
               {
                 "name": "status",
@@ -1091,15 +1091,15 @@
               },
               {
                 "name": "priority",
-                "type": "int"
+                "type": "str"
               },
               {
                 "name": "threadCount",
-                "type": "int"
+                "type": "str"
               },
               {
                 "name": "flagid",
-                "type": "int"
+                "type": "str"
               },
               {
                 "name": "subject",
@@ -1111,7 +1111,7 @@
               },
               {
                 "name": "receivedTime",
-                "type": "int"
+                "type": "str"
               }
             ],
             "schema": {
