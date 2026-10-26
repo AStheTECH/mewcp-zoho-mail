@@ -14,7 +14,7 @@ class ApplyLabelsToEmailsResult(ToolResult):
 class DeleteEmailData(BaseModel):
     model_config = ConfigDict(extra="allow")
 
-    cId: str | None = None
+    cId: str | int | None = None
 
 
 class DeleteEmailResult(ToolResult):
